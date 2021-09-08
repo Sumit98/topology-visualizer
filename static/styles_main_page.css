@@ -1,0 +1,38 @@
+body,html{
+    height: 100%;
+}
+.sourcelabel {
+font-size: 11px;
+fill: #8d092a;
+}
+.targetlabel {
+font-size: 11px;
+fill: #8d092a;
+}
+.form-inline
+    {   padding-top: 20px;
+        width: 50%;
+        margin-left : 37%
+    }
+
+#logo { float: left;
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+}
+#reload_button{
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+}
+.navbar-nav{
+    margin-left: 12%;
+    margin-right: 15%;
+}
+#loading {
+    margin-left: 30%;
+    margin-right: 30%;
+    display: block;
+  }
+
+  

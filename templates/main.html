@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" href="{{url_for('static', filename='image.png')}}">
+        <title>Network Visualizer</title>
+        <link rel="stylesheet" href="../static/css/next.css">
+        <link rel="stylesheet" href="../static/styles_main_page.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script  type="text/javascript" src="../static/js/next.js"></script>
+        <script type="text/javascript" src="../static/topology.js"></script>
+        <script type="text/javascript" src="../static/next_app.js"></script>
+        <script type="text/javascript" src="../static/ip_validation.js"></script>
+        
+    </head>
+    <body>
+        <!-- <nav class="navbar navbar-light" style="background-color: #e3f2fd;"> -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <img src="{{url_for('static', filename='image.png')}}" id="logo" />
+                <a class="navbar-brand" href="#">Network Visualizer</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse bar" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('diffrence_page') }}">Display Diffrence</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('current_topology') }}">Refresh Autolayout</a>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-dark" onclick='horizontal()'>Horizontal Layout</button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-dark" onclick="vertical()">Vertical Layout</button>
+                    </li>
+                    <li class="nav-item" id = "reload_button">
+                      <i class="fa fa-refresh" id="lock-refresh" aria-hidden="true" style="font-size:40px; color: white;"></i>
+                      <script>
+                        $( '#lock-refresh' ).click(function() {
+                           $( this ).addClass( 'fa-spin' ).
+                              //Below is a function that I need to run after the FA icon is clicked.
+                                startup(history.go(0));
+                              });
+                      </script>
+                  </li>
+                  </ul>
+                </div>
+              </nav>
+          <!-- </nav> -->
+        <form class="form-inline" id='ip_validation' name='ip_validation' method="post" >
+            <div class="form-group mx-sm-3 mb-2" >
+              <label for="ip_address" class="sr-only">IP Address</label>
+              <input type="text" class="form-control" id="ip_address" name='ip_addr' placeholder="IP">
+            </div>
+            
+            <div id="formsubmitbutton">
+              <button type="submit" name="submitter" class="btn btn-primary mb-2" onclick="ValidateIPaddress(document.ip_validation.ip_addr) "
+              >Submit</button>  
+            </div>
+            <div id="buttonreplacement" style="margin-left:30px; display:none; position:absolute; width:100%; height:100% ">
+             <!-- <img src="{{url_for('static', filename='loader.gif')}}"  class="center" alt="loading..."> -->
+             <img src="../static/loader.gif"  class="center" alt="loading...">
+            </div>
+          </form>
+          <div id="loading" style="display:none;"><img src="../static/loader.gif" alt="Loading.." /></div>      
+    </body>
+</html>

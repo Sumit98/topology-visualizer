@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../static/css/next.css">
+        <link rel="stylesheet" href="../static/styles_main_page.css">
+        <script src="../static/js/next.js"></script>
+        <script src="../static/diff_topology.js"></script>
+        <script src="../static/next_app.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Network Visualizer</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('current_topology') }}">Display Current Topology</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('diffrence_page') }}">Refresh Autolayout</a>
+                </li>
+             
+                <li class="nav-item">
+                    <button type="button" class="btn btn-dark" onclick='horizontal()'>Horizontal Layout</button>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn btn-dark" onclick="vertical()">Vertical Layout</button>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        <p align=center><font size="3">New nodes and links marked green. Deleted links are red dotted lines. Deleted node icon speaks for itself</font></p>
+    </body>
+</html>
